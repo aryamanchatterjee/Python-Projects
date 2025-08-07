@@ -1,4 +1,5 @@
 Documentation for creditcardfraud.py:
+
 This script trains a machine learning model to detect fraudulent credit card transactions. It begins by loading a dataset that contains labeled transaction data, where each row represents a transaction and includes various features such as transaction amount, time, and anonymized numerical components. The dataset also contains a binary label called Class that indicates whether a transaction is valid or fraudulent.
 
 The script filters out and calculates the ratio of fraudulent to valid transactions, which is essential because fraud detection is typically a case of imbalanced classification—fraud cases are rare. It then separates the features (inputs) from the target labels and splits the dataset into training and testing sets using an 80/20 ratio. This ensures the model is evaluated on data it hasn't seen during training.
@@ -8,6 +9,7 @@ The model used is a Random Forest classifier, which is a popular ensemble learni
 Finally, the trained model is saved to disk using the joblib library so it can be reused later without retraining.
 
 Documentation for predict_from_csv.py:
+
 This script is designed to use the previously trained and saved fraud detection model to make predictions on a new set of transactions. It begins by loading the trained model from the pickle file created by the training script. It then reads a new CSV file containing transaction data that must follow the same structure as the original dataset used during training (except the Class column is not required, as the model will predict it).
 
 Once the data is loaded, the model makes predictions for each transaction, determining whether it's likely to be valid or fraudulent. The results are appended as a new column in the dataset. This enhanced dataset is then saved as a new CSV file, allowing the user to inspect which transactions were flagged as frauds.
